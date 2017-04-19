@@ -1,8 +1,7 @@
+
+
 // The ConversationPanel module is designed to handle
 // all display and behaviors of the conversation column of the app.
-/* eslint no-unused-vars: "off" */
-/* global Api: true, Common: true*/
-
 var ConversationPanel = (function() {
   var settings = {
     selectors: {
