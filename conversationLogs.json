@@ -1,0 +1,9 @@
+{
+  "conversation": {
+    "conversationId": "",
+    "userID": "42",
+    "userInput": "Hi",
+    "botOutput": "Bye",
+    "conversationTurn": "1"
+  }
+}
