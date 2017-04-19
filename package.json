@@ -1,6 +1,6 @@
 {
-  "name": "conversation-simple",
-  "description": "A simple Node.js based web app which shows how to use the Conversation API to recognize user intents.",
+  "name": "FAQ_Sante",
+  "description": "Conversation Bot with CloudantDB",
   "version": "0.1.1",
   "main": "server.js",
   "scripts": {
