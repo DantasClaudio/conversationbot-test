@@ -19,6 +19,7 @@
 var express = require('express'); // app server
 var bodyParser = require('body-parser'); // parser for post requests
 var Conversation = require('watson-developer-cloud/conversation/v1'); // watson sdk
+var repository = require("./public/js/repository.js");
 
 var app = express();
 
@@ -48,8 +49,8 @@ app.post('/api/message', function(req, res) {
     });
   }
   var payload = {
-    workspace_id: workspace,
     context: req.body.context || {},
+    workspace_id: workspace,
     input: req.body.input || {}
   };
 
@@ -58,7 +59,9 @@ app.post('/api/message', function(req, res) {
     if (err) {
       return res.status(err.code || 500).json(err);
     }
-    return res.json(updateMessage(payload, data));
+	var message = updateMessage(payload, data);
+	repository.saveConversation("xxxxx",message.context.conversation_id,message.input,message.output.text);
+    return res.json(message);
   });
 });
 
