@@ -23,13 +23,10 @@ exports.saveConversation = function(userID,conversationID,input,output) {
 				  if (err) {
 					return console.log('[saveConversation.insert] ', err.message);
 				  }
-				  console.log('*****************You have inserted the conversation.*****************');
-				  console.log(body);
 				});				
 			}
 			// conversation was founded so we must do the update			
 			else {                 
-				console.log("Data:", data);
 				// keep a copy of the doc so we know its revision token
 				doc = data;
 				data.conversations.unshift({conversationID : conversationID,  output : output , input : input});
@@ -37,8 +34,6 @@ exports.saveConversation = function(userID,conversationID,input,output) {
 				  if (err) {
 					return console.log('[saveConversation.update] ', err.message);
 				  }
-				  console.log('*****************You have updated the conversation.*****************');
-				  console.log(body);
 				});
 			}
 			
