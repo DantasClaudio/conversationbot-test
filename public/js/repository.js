@@ -1,10 +1,17 @@
 exports.saveConversation = function(userID,conversationID,input,output) {
 	
 	var Cloudant = require('cloudant');
-	 
-	var username = process.env.cloudant_username;
-	var password = process.env.cloudant_password;
-	var url = process.env.cloudant_url;
+	var vCap - require('vcap_services');
+	var cloudantCredentials = vCap.getCredentials('cloudantNoSQLDB');
+	var url = null;
+	
+	if (cloudantCredentials)
+		url = cloudantCredentials.url;
+
+	url = url || process.env.CLOUDANT_URL;
+
+	if (url)
+		if (!cloudantCredentials.username || !cloudantCredentials.password)
 	
 	// Initialize the library with my account. 
 	var cloudant = Cloudant({account:username, password:password, url:url});
