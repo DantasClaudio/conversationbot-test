@@ -6,7 +6,7 @@ exports.saveConversation = function(userID,conversationID,input,output) {
 	var password = process.env.cloudant_password;
 
 	// Initialize the library with my account. 
-	var cloudant = Cloudant({account:username, password:password});
+	var cloudant = Cloudant({vcapServices: JSON.parse(process.env.VCAP_SERVICES)});
 
 		// Specify the database we are going to use (alice)... 
 		var conversation = cloudant.db.use('conversations')
